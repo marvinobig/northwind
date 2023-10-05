@@ -55,7 +55,7 @@ $regions = $balticDb->query("SELECT DISTINCT Region FROM Customers", PDO::FETCH_
                             <td><?= $customer['Country'] ?></td>
                             <td><?= $customer['Phone'] ?></td>
                             <td><?= $customer['Fax'] ?></td>
-                            <td><a href="./scripts/deleteCustomer?id=<?= $customer['CustomerID'] ?>">Delete</a></td>
+                            <td><a href="scripts/deleteCustomer.php?id=<?= $customer['CustomerID'] ?>">Delete</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
