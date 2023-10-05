@@ -3,7 +3,6 @@
 declare(strict_types=1);
 require_once './config/bootstrap.php';
 
-$balticDb = $db->dbConnect();
 $customers = $balticDb->query("SELECT * FROM Customers", PDO::FETCH_ASSOC)->fetchAll();
 $cities = $balticDb->query("SELECT DISTINCT City FROM Customers", PDO::FETCH_ASSOC)->fetchAll();
 $countries = $balticDb->query("SELECT DISTINCT Country FROM Customers", PDO::FETCH_ASSOC)->fetchAll();
