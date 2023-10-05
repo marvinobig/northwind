@@ -10,7 +10,7 @@
         </label>
         <label for="contact-name">
             Contact Name
-            <input type="text" name="contact-name" id="contact-name" required>
+            <input type="text" name="contact-name" id="contact-name">
         </label>
         <label for="contact-title">
             Contact Title
