@@ -1,10 +1,8 @@
 <?php
 
 declare(strict_types=1);
-require_once './classes/SQL.php';
-require_once './classes/Utilities.php';
+require_once './config/bootstrap.php';
 
-$db = new SQL('ExDatabase10', 'Learner10', 'BalticSQL1');
 $balticDb = $db->dbConnect();
 $customers = $balticDb->query("SELECT * FROM Customers", PDO::FETCH_ASSOC)->fetchAll();
 $cities = $balticDb->query("SELECT DISTINCT City FROM Customers", PDO::FETCH_ASSOC)->fetchAll();
