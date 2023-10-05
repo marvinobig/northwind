@@ -1,0 +1,110 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#customer-table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    border: 1px solid #000000;
+    border-collapse: collapse;
+}
+
+table tr,
+td,
+th {
+    border: 1px solid #000000;
+    padding: 20px;
+}
+
+table th {
+    background-color: #0000805f;
+}
+
+table td {
+    background-color: #0000002f;
+}
+
+table tbody tr:hover {
+    background-color: #0000001f;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px;
+    font-size: larger;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+dialog {
+    padding: 40px;
+}
+
+dialog section:not([class]) {
+    margin-bottom: 20px;
+}
+
+dialog h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+    font-size: larger;
+    border: 1px solid #000000;
+}
+
+textarea:focus {
+    outline: 2px solid #000000;
+}
+
+label:has(> *) {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #000000;
+    padding: 5px 10px;
+    word-wrap: keep-all;
+}
+
+label input {
+    font-size: larger;
+    width: 100%;
+    border: none;
+}
+
+label input:focus {
+    outline: none;
+}
+
+label:focus-within {
+    outline: 2px solid #000000;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+a:hover {
+    text-decoration: underline;
+}
