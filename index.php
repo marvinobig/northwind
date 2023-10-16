@@ -44,20 +44,24 @@ $regions = $balticDb->query("SELECT DISTINCT Region FROM Customers", PDO::FETCH_
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($customers as $customer) : ?>
-                        <tr>
-                            <td><?= $customer['CompanyName'] ?></td>
-                            <td><?= $customer['ContactName'] ?></td>
-                            <td><?= $customer['ContactTitle'] ?></td>
-                            <td><?= $customer['Address'] ?></td>
-                            <td><?= $customer['City'] ?></td>
-                            <td><?= $customer['PostalCode'] ?></td>
-                            <td><?= $customer['Country'] ?></td>
-                            <td><?= $customer['Phone'] ?></td>
-                            <td><?= $customer['Fax'] ?></td>
-                            <td><a href="scripts/deleteCustomer.php?id=<?= $customer['CustomerID'] ?>">Delete</a></td>
-                        </tr>
-                    <?php endforeach; ?>
+                    <?php if (count($customers) == 0) : ?>
+                        <td class="no-data" colspan="10">No Data Available</td>
+                    <?php else : ?>
+                        <?php foreach ($customers as $customer) : ?>
+                            <tr>
+                                <td><?= $customer['CompanyName'] ?></td>
+                                <td><?= $customer['ContactName'] ?></td>
+                                <td><?= $customer['ContactTitle'] ?></td>
+                                <td><?= $customer['Address'] ?></td>
+                                <td><?= $customer['City'] ?></td>
+                                <td><?= $customer['PostalCode'] ?></td>
+                                <td><?= $customer['Country'] ?></td>
+                                <td><?= $customer['Phone'] ?></td>
+                                <td><?= $customer['Fax'] ?></td>
+                                <td><a href="scripts/deleteCustomer.php?id=<?= $customer['CustomerID'] ?>">Delete</a></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif ?>
                 </tbody>
             </table>
             <?php require_once './partials/addCustomerForm.php' ?>
