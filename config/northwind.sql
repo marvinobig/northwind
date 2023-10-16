@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS 'Customers' (
     City VARCHAR(50),
     PostalCode VARCHAR(50),
     Country VARCHAR(50),
+    Region VARCHAR(50),
     Phone VARCHAR(50),
     Fax VARCHAR(50)
 )
