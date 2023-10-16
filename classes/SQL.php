@@ -5,15 +5,11 @@ declare(strict_types=1);
 class SQL
 {
     protected string $database;
-    protected string $username;
-    protected string $password;
     protected PDO $pdo;
 
-    function __construct(string $database, string $username, string $password)
+    function __construct(string $database)
     {
         $this->database = $database;
-        $this->username = $username;
-        $this->password = $password;
     }
 
     /**
@@ -22,7 +18,7 @@ class SQL
     public function dbConnect(): PDO
     {
         try {
-            $this->pdo = new PDO("sqlsrv:server=balticsqlserver.database.windows.net; Database=$this->database", $this->username, $this->password);
+            $this->pdo = new PDO("sqlite:./$this->database.sqlite");
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->setAttribute(PDO::SQLSRV_ATTR_QUERY_TIMEOUT, 1);
 
@@ -42,8 +38,10 @@ class SQL
             throw new Exception("No connection to the database exists. Call dbConnect()");
         }
 
-        $sqlScript = file_get_contents('../config/northwind.sql');
-
-        $this->pdo->query($sqlScript)->fetchAll();
+        if ($sqlScript = file_get_contents('./config/northwind.sql')) {
+            $this->pdo->query($sqlScript)->fetchAll();
+        } else {
+            throw new Exception("SQL script could not be found");
+        }
     }
 }
