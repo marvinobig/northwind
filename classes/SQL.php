@@ -16,6 +16,9 @@ class SQL
         $this->password = $password;
     }
 
+    /**
+     * Creates a db connection by generating the sqlite db file.
+     */
     public function dbConnect(): PDO
     {
         try {
@@ -27,5 +30,20 @@ class SQL
         } catch (Exception $err) {
             echo $err->getMessage();
         }
+    }
+
+    /**
+     * This function creates the northwind table in the database.
+     * This should be called after dbConnect() or it will throw an exception.
+     */
+    public function dbCreateNorthwind(): void
+    {
+        if (!$this->pdo) {
+            throw new Exception("No connection to the database exists. Call dbConnect()");
+        }
+
+        $sqlScript = file_get_contents('../config/northwind.sql');
+
+        $this->pdo->query($sqlScript)->fetchAll();
     }
 }
