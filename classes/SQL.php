@@ -20,7 +20,6 @@ class SQL
         try {
             $this->pdo = new PDO("sqlite:./$this->database.sqlite");
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->pdo->setAttribute(PDO::SQLSRV_ATTR_QUERY_TIMEOUT, 1);
 
             return $this->pdo;
         } catch (Exception $err) {
