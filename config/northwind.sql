@@ -10,4 +10,4 @@ CREATE TABLE IF NOT EXISTS 'Customers' (
     Region VARCHAR(50),
     Phone VARCHAR(50),
     Fax VARCHAR(50)
-)
+);
