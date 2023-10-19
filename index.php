@@ -4,7 +4,6 @@ declare(strict_types=1);
 require_once './config/bootstrap.php';
 
 $customers = $GLOBALS['DB']->query("SELECT * FROM Customers ORDER BY ContactName DESC", PDO::FETCH_ASSOC)->fetchAll();
-echo count($customers);
 $cities = $GLOBALS['DB']->query("SELECT DISTINCT City FROM Customers", PDO::FETCH_ASSOC)->fetchAll();
 $countries = $GLOBALS['DB']->query("SELECT DISTINCT Country FROM Customers", PDO::FETCH_ASSOC)->fetchAll();
 $regions = $GLOBALS['DB']->query("SELECT DISTINCT Region FROM Customers", PDO::FETCH_ASSOC)->fetchAll();
