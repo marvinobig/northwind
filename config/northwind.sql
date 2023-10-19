@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS 'Customers' (
-    CustomerID INT PRIMARY KEY,
+    CustomerID INTEGER PRIMARY KEY,
     CompanyName VARCHAR(50),
     ContactName VARCHAR(50),
     ContactTitle VARCHAR(50),
