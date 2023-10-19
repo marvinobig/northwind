@@ -7,7 +7,7 @@ if (!isset($_GET['id'])) {
 
 try {
     $customerID = $_GET['id'] ?? '';
-    $balticDb->prepare('DELETE FROM Customers WHERE CustomerID = ?')->execute([$customerID]);
+    $GLOBALS['DB']->prepare('DELETE FROM Customers WHERE CustomerID = ?')->execute([$customerID]);
 
     Utilities::redirect('/index.php', 301);
 } catch (Exception $err) {
