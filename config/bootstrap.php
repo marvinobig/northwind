@@ -4,5 +4,5 @@ require_once "$root/classes/SQL.php";
 require_once "$root/classes/Utilities.php";
 
 $db = new SQL('northwind');
-$balticDb = $db->dbConnect();
+$GLOBALS['DB'] = $db->dbConnect();
 $db->dbCreateNorthwind();
