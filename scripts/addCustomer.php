@@ -2,11 +2,10 @@
 require_once '../config/bootstrap.php';
 
 if (!isset($_POST['company-name'])) {
-    Utilities::redirect("/index.php", status: 403);
+    Utilities::redirect("/index.php", status: 301);
 }
 
 try {
-    $customerID = $_POST['contact-name'] ?? '';
     $companyName = $_POST['company-name'] ?? '';
     $contactName = $_POST['contact-name'] ?? '';
     $contactTitle = $_POST['contact-title'] ?? '';
@@ -18,8 +17,7 @@ try {
     $phone = $_POST['phone'] ?? '';
     $fax = $_POST['fax'] ?? '';
 
-    $balticDb->prepare('INSERT INTO Customers (CustomerID, CompanyName,	ContactName, ContactTitle, Address, City, PostalCode, Region, Country, Phone, Fax) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')->execute([
-        $customerID,
+    $GLOBALS['DB']->prepare('INSERT INTO Customers (CompanyName, ContactName, ContactTitle, Address, City, PostalCode, Region, Country, Phone, Fax) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')->execute([
         $companyName,
         $contactName,
         $contactTitle,
