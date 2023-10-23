@@ -8,14 +8,14 @@ I produced a UI using vanilla PHP, PDO and SQLite to read, create and delete dat
 
 ## Running Site
 
+```text
+You'll need Docker CLI or Docker Desktop installed to run this application.
+```
+
 This site has been containerised using docker. To run the container, head to the terminal and run
 
 ```bash
-cd northwind
-```
-
-```bash
-docker build -t marvinobig/northwind .   
+docker pull marvinobig/northwind 
 ```
 
 ```bash
