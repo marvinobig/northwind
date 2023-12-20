@@ -21,3 +21,9 @@ docker pull marvinobig/northwind
 ```bash
 docker run -it --rm -p 8888:8080 marvinobig/northwind
 ```
+
+Access on
+
+```bash
+localhost:8888
+```
